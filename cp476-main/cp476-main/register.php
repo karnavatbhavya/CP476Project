@@ -64,6 +64,20 @@ if ($stmt = $link->prepare('SELECT id, password FROM accounts WHERE username = ?
 	//check to make sure accounts table exists with all 3 fields.
 	echo 'Could not prepare statement!';
 }
+
+function getAge($date)
+{
+	
+	$dob = new DateTime($date);
+	
+	$now = new DateTime();
+	 
+	$difference = $now->diff($dob);
+	 
+	$age = $difference->y;
+	 
+	return  $age;
+}
 $link->close();
 ?>
 
